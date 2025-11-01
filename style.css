@@ -108,41 +108,57 @@ textarea {
   box-sizing: border-box;
 }
 
-/* iPhone / Safari Fix für Datumsfelder */
+/* --- iOS Safari Fix: Date Input mit Icon & gleicher Höhe --- */
 input[type="date"] {
-  -webkit-appearance: none;
+  -webkit-appearance: none; /* eigenes Styling erlauben */
   appearance: none;
   background: #fffdfc;
   border: 1px solid var(--border);
   border-radius: 8px;
   color: var(--muted);
-  padding: 0.6rem 0.8rem;
   font-size: 0.95rem;
   width: 100%;
   box-sizing: border-box;
-  line-height: normal;
+
+  padding: 0.65rem 2.2rem 0.65rem 0.8rem; /* rechts Platz fürs Icon */
+  height: 2.6rem; /* gleiche Höhe wie andere Inputs */
+  line-height: 1.2rem;
+
+  position: relative;
   display: block;
 }
 
-/* iOS Safari-Bug: verhindert zu kleine Breite */
+/* Textinhalt schön ausrichten */
 input[type="date"]::-webkit-date-and-time-value {
   text-align: left;
   width: 100%;
+  line-height: normal;
+  height: auto;
+  padding: 0;
+  margin: 0;
 }
 
-/* Kalender-Icon beibehalten und optisch anpassen */
+/* Kalender-Icon zurückbringen und stilistisch anpassen */
 input[type="date"]::-webkit-calendar-picker-indicator {
-  position: 5;
-  right: 10px;
-  opacity: 0.7;
+  opacity: 1;
   cursor: pointer;
-  padding: 4px;
-  border-radius: 4px;
+  position: absolute;
+  right: 0.6rem;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 1.2rem;
+  width: 1.2rem;
+  background-color: var(--accent);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M7 10h5v5H7z'/%3E%3Cpath d='M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+  border: none;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator:hover {
   opacity: 1;
-  background: rgba(0, 0, 0, 0.05);
 }
 
 input:focus,
