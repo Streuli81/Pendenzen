@@ -5,6 +5,8 @@
   --muted: #777777;
   --accent: #ff8c5a;
   --border: #e9e3e0;
+  --item-bg: #fffaf8;
+  --item-border: #f3d0c9;
   --radius: 12px;
   --spacing: 1rem;
   font-family: "Inter", system-ui, sans-serif;
@@ -139,11 +141,12 @@ button.secondary:hover {
 
 /* Liste */
 .item {
-  background: #fffdfc;
-  padding: 0.8rem;
-  margin-bottom: 0.6rem;
-  border-radius: 8px;
-  border: 1px solid var(--border);
+  background: #fffaf8; /* etwas heller, mit einem warmen Touch */
+  border: 1px solid #f3d0c9; /* sanfter, aber sichtbarer Rahmen */
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06); /* leichte Tiefe */
 }
 
 .meta {
@@ -181,11 +184,19 @@ button.secondary:hover {
 }
 
 .item {
+  background: #fffdfc; /* heller Grundton, gleich wie Eingabefelder */
   border: 1px solid var(--border);
-  border-radius: 8px;
-  margin-bottom: 0.6rem;
-  overflow: hidden;
-  background: var(--card);
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.item:hover {
+  transform: translateY(-2px); /* leicht angehoben */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* etwas stärkerer Schatten */
+  background: #fffdfc; /* bleibt gleich, kein Farbwechsel */
 }
 
 .item-header {
@@ -199,7 +210,7 @@ button.secondary:hover {
 }
 
 .item-header:hover {
-  background: #fff0e9;
+  background: transparent;
 }
 
 .item-header.status-done .item-title {
@@ -228,6 +239,11 @@ button.secondary:hover {
   max-height: 1000px; /* groß genug für alles */
   padding: 0.8rem;
   border-top: 1px solid var(--border);
+}
+
+.item:active {
+  transform: translateY(0); /* fällt leicht zurück beim Klicken */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 /* Fortschritte */
