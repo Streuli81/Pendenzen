@@ -1,0 +1,17 @@
+# Node modules (niemals committen)
+node_modules/
+
+# Build- und Cache-Ordner
+dist/
+build/
+.cache/
+.expo/
+.expo-shared/
+android/
+ios/
+
+# Editor- und Systemdateien
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
